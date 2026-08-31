@@ -46,7 +46,7 @@ export const validateQuery = (schema: ZodType) => {
       });
     }
 
-    req.query = result.data as any;
+    res.locals.validatedQuery = result.data;
 
     next();
   };

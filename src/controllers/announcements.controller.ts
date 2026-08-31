@@ -7,14 +7,14 @@ export const getAnnouncements = async (
   res: Response,
 ) => {
   const {
-    search,
-    sort = "newest",
-    page = 1,
-  } = req.query as {
-    search?: string;
-    sort?: "newest" | "oldest";
-    page?: number;
-  };
+  search,
+  sort = "newest",
+  page = 1,
+} = res.locals.validatedQuery as {
+  search?: string;
+  sort?: "newest" | "oldest";
+  page?: number;
+};
 
   const pageNumber = Number(page);
   const skip = (pageNumber - 1) * 10;
